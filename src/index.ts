@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import express from 'express'
+import express from  'express'
 
 const application = express()
 const port = 8080
