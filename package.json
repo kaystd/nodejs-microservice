@@ -9,13 +9,16 @@
     "eslint:dump": "eslint --print-config ./.eslintrc.json"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.3",
+    "@types/jsonwebtoken": "^8.3.9",
     "@types/node": "^13.9.5",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
+    "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "typescript": "^3.8.3"
   }
