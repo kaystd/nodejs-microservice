@@ -1,6 +1,7 @@
 import { Application, Request, Response } from 'express'
 import { Db } from 'mongodb'
 import Auth from '../middleware/Auth'
+import sendMail from '../utils/sendMail'
 
 export default (app: Application, db: Db): void => {
   app.post('/key/get', (request: Request, response: Response) => {
@@ -12,7 +13,7 @@ export default (app: Application, db: Db): void => {
         if (err) {
           response.send({ error: err.message })
         } else {
-          response.send({ key: result.key })
+          sendMail(request.body.mail, result.key).then(res => response.send(res))
         }
       })
     }
