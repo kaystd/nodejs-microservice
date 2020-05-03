@@ -2,13 +2,19 @@ import { Request, Response } from 'express'
 import express from  'express'
 import dotenv from 'dotenv'
 import { MongoClient, MongoError } from 'mongodb'
+// Bug in @types/cors
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
+import cors from 'cors'
+
 import routes from './routes/keyRoutes'
 
 dotenv.config()
 const application = express()
 const port = process.env.PORT
 const mongoUrl = process.env.MONGO_URL
-application.use(express.json())
+
+application.use(cors(), express.json())
 
 application.get('/', (request: Request, response: Response) => {
   response.send("Welcome to Node.js microservice!")
